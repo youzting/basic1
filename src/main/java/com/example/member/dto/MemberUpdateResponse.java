@@ -5,6 +5,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
+
 public class MemberUpdateResponse {
     private final Long id;
     private final String name;
