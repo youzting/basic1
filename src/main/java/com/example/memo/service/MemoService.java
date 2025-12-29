@@ -73,6 +73,10 @@ public class MemoService {
 
     @Transactional
     public void delete(Long memoId){
+        boolean existence = memoRepository.existsById(memoId);
+        if (!existence){
+            throw new IllegalStateException("메모가 없음");
+        }
         memoRepository.deleteById(memoId);
     }
 
