@@ -17,22 +17,26 @@ public class MemoController {
     @PostMapping("/memos")
     public ResponseEntity<MemoCreateResponse> create(
             @RequestBody MemoCreateRequest request
-    ){
+    )
+    {
         return ResponseEntity.status(HttpStatus.CREATED).body(memoService.save(request));
     }
 
     @GetMapping("/memos")
-    public ResponseEntity<List<MemoGetResponse>> getAll(){
+    public ResponseEntity<List<MemoGetResponse>> getAll()
+    {
         return ResponseEntity.status(HttpStatus.OK).body(memoService.findAll());
     }
 
     @GetMapping("/memos/{memoId}")
-    public ResponseEntity<MemoGetResponse> getOne(@PathVariable Long memoId){
+    public ResponseEntity<MemoGetResponse> getOne(@PathVariable Long memoId)
+    {
         return ResponseEntity.status(HttpStatus.OK).body(memoService.findOne(memoId));
     }
 
     @PutMapping("/memos/{memoId}")
-    public ResponseEntity<MemoUpdateResponse> update(@PathVariable Long memoId, @RequestBody MemoUpdateRequest request){
+    public ResponseEntity<MemoUpdateResponse> update(@PathVariable Long memoId, @RequestBody MemoUpdateRequest request)
+    {
         return ResponseEntity.status(HttpStatus.OK).body(memoService.update(memoId, request));
     }
 
